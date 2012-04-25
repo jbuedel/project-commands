@@ -54,6 +54,18 @@ function rebuild_project {
 }
 function develop_project {
 	write-host "The 'develop' command has not been created.  Edit your .project-commands.psm1 file and add your project specific command(s) to the develop_project function."
+	
+	# You probably just want to simply open a solution here.  For example, 
+	#	& "MySolution.sln"
+	#
+	# Here is a nice example for when you need the user to choose between a couple solutions:
+	# 	$project = read-host 'Which project do you want to work on, Widgets or Frobbs?'
+	#	switch -wildcard ($project.ToLower()) {
+	#		"w*" { ..\Widgets.sln }
+	#		"f*" { ..\Frobbs.sln }
+	#		Default { write-host "You need to say 'Widgets' or 'Frobbs'." }
+	#	}
+
 }
 function pushenv_project {
 	write-host "The 'pushenv' command has not been created.  Edit your .project-commands.psm1 file and add your project specific command(s) to the pushenv_project function."
