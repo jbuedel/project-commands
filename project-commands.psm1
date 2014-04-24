@@ -1,13 +1,13 @@
-function build 		{	exec-build-cmd("build") 	}
-function test 		{	exec-build-cmd("test") 		}
-function clean 		{	exec-build-cmd("clean") 	}
-function rebuild 	{	exec-build-cmd("rebuild") 	}
-function develop 	{ 	exec-build-cmd("develop") 	}
-function pushenv 	{	exec-build-cmd("pushenv") 	}
-function popenv 	{ 	exec-build-cmd("popenv") 	}
-function share 		{ 	exec-build-cmd("share") 	}
+function build 		{	invoke-build-cmd("build") 	}
+function test 		{	invoke-build-cmd("test") 		}
+function clean 		{	invoke-build-cmd("clean") 	}
+function rebuild 	{	invoke-build-cmd("rebuild") 	}
+function develop 	{ 	invoke-build-cmd("develop") 	}
+function pushenv 	{	invoke-build-cmd("pushenv") 	}
+function popenv 	{ 	invoke-build-cmd("popenv") 	}
+function share 		{ 	invoke-build-cmd("share") 	}
 
-function exec-build-cmd {
+function invoke-build-cmd {
 
 	Param($cmdscript)
 
@@ -69,3 +69,5 @@ function any-in {
 	}
 	return $false
 }
+
+Export-ModuleMember -Function  build, test, clean, develop, pushenv, popenv, share 
