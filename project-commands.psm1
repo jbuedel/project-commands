@@ -70,4 +70,4 @@ function any-in {
 	return $false
 }
 
-Export-ModuleMember -Function  @('build', 'test', 'clean', 'develop', 'pushenv', 'popenv', 'share') 
+Export-ModuleMember -Function  @('build', 'rebuild', 'test', 'clean', 'develop', 'pushenv', 'popenv', 'share') 
