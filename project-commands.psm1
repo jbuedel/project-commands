@@ -32,6 +32,9 @@ function invoke-build-cmd {
 		# If we hit the drive (c:, d:, whatever) we need to abort.
 		if(!( get-item $projectdir ).Parent) { # drive has an empty parent
 			echo "There is no project here ($projectrootflagdirs not found)."
+      echo "You could manually do a:"
+      echo "     cp $psScriptRoot\project-commands.template.psm1 $project_commands_file"
+      echo "to create a project rooted in this directory."
 			return
 		}
 	}
