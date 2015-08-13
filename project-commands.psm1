@@ -31,6 +31,7 @@ function invoke-build-cmd {
 
 		# If we hit the drive (c:, d:, whatever) we need to abort.
 		if(!( get-item $projectdir ).Parent) { # drive has an empty parent
+      echo-header
 			echo "There is no project here ($projectrootflagdirs not found)."
       echo "You could manually do a:"
       echo "     cp $psScriptRoot\project-commands.template.psm1 $project_commands_file"
@@ -50,6 +51,7 @@ function invoke-build-cmd {
 	else {
 		cp $psScriptRoot\project-commands.template.psm1 $project_commands_file
 		
+    echo-header
 		echo "Project file $project_commands_file did not exist, and so was created."
 		echo "Edit it to add in the specific commands that implement '$cmdscript' for this project."
 		
@@ -71,6 +73,13 @@ function any-in {
 		}
 	}
 	return $false
+}
+
+function echo-header {
+  # Let the user clearly know who is generating this error.
+  echo "****************************************************************************************"
+  echo "* This message is from 'project commands'. https://github.com/jbuedel/project-commands *"
+  echo "****************************************************************************************"
 }
 
 Export-ModuleMember -Function  @('build', 'rebuild', 'test', 'clean', 'develop', 'pushenv', 'popenv', 'share') 
